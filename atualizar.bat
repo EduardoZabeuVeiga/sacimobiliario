@@ -1,14 +1,15 @@
 @echo off
-:: Pega a hora do sistema (apenas HH:MM)
-set hora=%time:~0,5%
+:: Pega a data e a hora (Formato: DD/MM/AAAA - HH:MM)
+set timestamp=%date% - %time:~0,5%
 
 echo ==========================================
 echo [1/3] Adicionando arquivos...
 git add .
 
+
 echo.
-echo [2/3] Realizando commit (Horario: %hora%)...
-git commit -m "%hora%"
+echo [2/3] Realizando commit (Horario: %timestamp%)...
+git commit -m "%timestamp%"
 
 echo.
 echo [3/3] Enviando para o GitHub...

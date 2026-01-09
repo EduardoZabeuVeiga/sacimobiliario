@@ -17,9 +17,19 @@ nav {
     padding: 1rem;
 }
 .logo {
+    display: flex;
+    align-items: center;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1.15rem;
     color: #4e5c3a;
+    gap: 0.5rem;
+}
+
+.logo-icon {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 0.2rem;
+}
 }
 nav ul {
     list-style: none;
@@ -176,29 +186,157 @@ footer {
     border-radius: 6px;
     font-size: 1rem;
 }
-.diagnostico-form button {
-    background: #4e5c3a;
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    background: #fffdfa;
+    color: #2d2d2d;
+}
+
+header {
+    background: #fff;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.15rem;
+    color: #1e5e6b; /* azul-turquesa escuro */
+    gap: 0.5rem;
+}
+.logo-icon {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 0.2rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+nav ul li a {
+    text-decoration: none;
+    color: #1e5e6b; /* azul-turquesa escuro */
+    font-weight: 500;
+    transition: color 0.2s;
+}
+nav ul li a:hover {
+    color: #f47c20; /* laranja vibrante */
+}
+
+.hero {
+    background: linear-gradient(120deg, #1ec6c6 0%, #f47c20 100%), url('../img/hero.jpg') center/cover no-repeat;
+    min-height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.hero-content {
+    background: rgba(34, 49, 63, 0.55);
+    padding: 2rem 2.5rem;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.cta {
+    display: inline-block;
+    margin-top: 1.5rem;
+    background: #f47c20; /* laranja */
+    color: #fff;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 8px rgba(244,124,32,0.08);
+    border: none;
+    transition: background 0.2s, color 0.2s;
+}
+.cta:hover {
+    background: #1ec6c6; /* azul-turquesa */
+    color: #fff;
+}
+
+/* Paleta Trancoso */
+:root {
+    --trancoso-turquesa: #1ec6c6;
+    --trancoso-laranja: #f47c20;
+    --trancoso-rosa: #e94e77;
+    --trancoso-amarelo: #ffe156;
+    --trancoso-verde: #4caf50;
+    --trancoso-branco: #fffdfa;
+}
+
+/* Destaques coloridos */
+.pilar h3 {
+    color: #e94e77; /* rosa */
+}
+.pilar ul li::marker {
+    color: #4caf50; /* verde */
+}
+.pilar ul li {
+    margin-bottom: 0.3em;
+}
+
+footer {
+    background: #fffdfa;
+    border-top: 2px solid #ffe156;
+    color: #1e5e6b;
+}
+footer p {
+    color: #1e5e6b;
+}
+
+/* Botões e formulários */
+button, input[type="submit"] {
+    background: #e94e77;
     color: #fff;
     border: none;
-    padding: 0.8rem;
-    border-radius: 30px;
-    font-size: 1.1rem;
-    cursor: pointer;
+    border-radius: 6px;
+    padding: 0.7rem 1.5rem;
+    font-weight: bold;
+    font-size: 1rem;
     transition: background 0.2s;
 }
-.diagnostico-form button:hover {
-    background: #6e8b4e;
+button:hover, input[type="submit"]:hover {
+    background: #4caf50;
 }
-@media (max-width: 900px) {
-    .pilares {
-        flex-direction: column;
-        align-items: center;
-    }
-    .imovel-lista {
-        flex-direction: column;
-        align-items: center;
-    }
-    nav ul {
-        gap: 0.7rem;
-    }
+
+/* Cards e blocos de serviço */
+.servico-bloco, .imovel-card, .blog article {
+    background: #fffdfa;
+    border-left: 6px solid #1ec6c6;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    padding: 1.2rem 1.5rem;
+    box-shadow: 0 2px 8px rgba(30,198,198,0.06);
+}
+.servico-bloco:nth-child(odd) {
+    border-left-color: #f47c20;
+}
+.servico-bloco:nth-child(even) {
+    border-left-color: #e94e77;
+}
+.imovel-card .status {
+    background: #ffe156;
+    color: #1e5e6b;
+    border-radius: 4px;
+    padding: 0.2em 0.7em;
+    font-size: 0.95em;
+    font-weight: bold;
 }
