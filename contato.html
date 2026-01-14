@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contato | Polo de Assessoria Imobiliária</title>
+    <title>Contato | Vertice Assessoria Imobiliária</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
@@ -126,7 +126,7 @@
 <body>
     <header>
         <nav>
-            <div class="logo"><img src="assets/img/logo-polo.svg" alt="Logo Polo" class="logo-icon"> Polo de Assessoria Imobiliária</div>
+            <div class="logo"><img src="assets/img/logo-polo.svg" alt="Logo Polo" class="logo-icon"> Vertice Assessoria Imobiliária</div>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="sobre.html">Quem Somos</a></li>
@@ -205,14 +205,14 @@
         </section>
     </main>
     <footer>
-        <p>&copy; 2026 Polo de Assessoria Imobiliária. Todos os direitos reservados.</p>
+        <p>&copy; 2026 Vertice Assessoria Imobiliária. Todos os direitos reservados.</p>
     </footer>
     <a href="#" class="whatsapp-float" id="whatsappBtn" title="Fale pelo WhatsApp">
         <img src="assets/img/whatsapp.svg" alt="WhatsApp">
     </a>
     <script src="assets/js/main.js"></script>
     <script>
-        // Coordenadas do Polo de Assessoria Imobiliária em Trancoso
+        // Coordenadas do Vertice Assessoria Imobiliária em Trancoso
         const poloLat = -16.590777;
         const poloLng = -39.101290;
         
@@ -224,9 +224,9 @@
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        // Marcador do Polo de Assessoria Imobiliária
+        // Marcador do Vertice Assessoria Imobiliária
         L.marker([poloLat, poloLng]).addTo(map)
-            .bindPopup('<b>Polo de Assessoria Imobiliária</b><br>Trancoso - BA')
+            .bindPopup('<b>Vertice Assessoria Imobiliária</b><br>Trancoso - BA')
             .openPopup();
 
         // Obter localização do usuário
@@ -249,7 +249,7 @@
                     // Exibir distância
                     const distanciaKm = distance.toFixed(1);
                     document.querySelector('.distancia-info').innerHTML = 
-                        `<p>Você está a aproximadamente <strong>${distanciaKm} km</strong> do Polo de Assessoria Imobiliária.</p>`;
+                        `<p>Você está a aproximadamente <strong>${distanciaKm} km</strong> do Vertice Assessoria Imobiliária.</p>`;
 
                     // Ajustar zoom para mostrar ambos os pontos
                     const bounds = L.latLngBounds([[userLat, userLng], [poloLat, poloLng]]);
