@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Abreu & Lima Advogados Associados</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="responsivo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        #map {
+            width: 100%;
+            height: 400px;
+            margin: 20px 0;
+            border-radius: 8px;
+            background-color: #eee; /* Cor de fundo enquanto o mapa carrega */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="logo"><a href="index.html"><img src="img/logo redondo.png" alt="Logotipo Redondo Abreu & Lima"></a></div>
+        <button class="menu-toggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="menu-principal">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="escritorio.html">O Escritório</a></li>
+                <li><a href="equipe.html">Nossa Equipe</a></li>
+                <li><a href="areas.html">Áreas de Atuação</a></li>
+                <li><a href="artigos.html">Artigos</a></li>
+                <li><a href="clientes.html">Clientes</a></li>
+                <li><a href="publicacoes.html">Publicações</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="contato-intro">
+            <div class="container">
+                <h1>Fale Conosco</h1>
+                <p class="subtitulo-contato">Entre em contato conosco para esclarecer dúvidas, agendar consultas ou solicitar uma proposta personalizada. Estamos prontos para oferecer soluções jurídicas eficazes para suas necessidades.</p>
+            </div>
+        </section>
+
+        <section id="contato-conteudo">
+            <div class="container">
+                <div class="contato-wrapper">
+                    <div class="info-contato">
+                    <h3>Informações de Contato</h3>
+                    <div class="info-item">
+                        <i class="fa-solid fa-users"></i>
+                        <p><strong>Sócios:</strong><br>Leonardo Lima<br>Kleyton Abreu</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <p><strong>Telefones:</strong><br><a href="tel:+5527998395903">(27) 99839-5903</a><br><a href="tel:+5527997318615">(27) 99731-8615</a></p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <p><strong>E-mails:</strong><br><a href="mailto:leonardo@abreuelimaadv.com.br">leonardo@abreuelimaadv.com.br</a><br><a href="mailto:kleyton@abreuelimaadv.com.br">kleyton@abreuelimaadv.com.br</a></p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-map-marker-alt"></i>
+                        <p><strong>Endereço Principal:</strong><br>Avenida Jerónimo Monteiro, 464, Ed. Acre, Sala 201/206, Centro, Vila Velha - ES, CEP: 29.100-401.</p>
+                    </div>
+                     <div class="info-item">
+                        <i class="fa-solid fa-building"></i>
+                        <p><strong>Nossas Unidades:</strong><br>Infraestrutura completa em Vila Velha/ES e Trancoso/BA.</p>
+                    </div>
+                    <div class="social-links-contato">
+                        <a href="mailto:leonardo@abreuelimaadv.com.br" target="_blank" rel="noopener noreferrer"><img src="img/email.png" alt="E-mail"></a>
+                        <a href="https://wa.me/5527998395903" target="_blank" rel="noopener noreferrer"><img src="img/whats.png" alt="WhatsApp"></a>
+                        <a href="https://www.linkedin.com/in/leonardo-lima-a3574a209/" target="_blank" rel="noopener noreferrer"><img src="img/in.png" alt="LinkedIn"></a>
+                        <a href="https://www.instagram.com/abreuelima_adv?utm_source=ig_web_button_share_sheet&igsh=MXZ6a3N3OHluZHcweg==" target="_blank" rel="noopener noreferrer"><img src="img/insta.png" alt="Instagram"></a>
+                    </div>
+                </div>
+                    <div class="form-contato">
+                        <h3>Envie uma Mensagem</h3>
+                        <form id="form-contato-principal">
+                            <label for="nome">Nome Completo:</label>
+                            <input type="text" id="nome" name="Nome" required>
+                            <label for="email">Seu E-mail:</label>
+                            <input type="email" id="email" name="Email" required>
+                            <label for="telefone">Seu Telefone:</label>
+                            <input type="tel" id="telefone" name="Telefone" placeholder="(XX) XXXXX-XXXX">
+                            <label for="mensagem">Mensagem:</label>
+                            <textarea id="mensagem" name="Mensagem" rows="5" required></textarea>
+                            <button type="submit">Enviar Mensagem via WhatsApp</button>
+                        </form>
+                    </div>
+                <div class="mapa-wrapper">
+                    <h2>Nossa Localização em Vila Velha</h2>
+                    <div id="map"></div>
+                    <div class="distancia-info">
+                        <p>Calculando sua distância até o escritório...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Abreu & Lima Advogados Associados. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Coordenadas do escritório (Vila Velha - ES)
+        const escritorioLat = -20.335183;
+        const escritorioLng = -40.297795;
+        
+        // Inicializa o mapa Leaflet
+        const map = L.map('map').setView([escritorioLat, escritorioLng], 15);
+
+        // Adiciona o mapa de fundo (tiles) do OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Marcador do escritório
+        L.marker([escritorioLat, escritorioLng]).addTo(map)
+            .bindPopup('Abreu & Lima Advogados')
+            .openPopup();
+
+        // Obter localização do usuário
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const userLat = position.coords.latitude;
+                    const userLng = position.coords.longitude;
+                    
+                    // Adicionar marcador do usuário
+                    L.marker([userLat, userLng]).addTo(map)
+                        .bindPopup('Sua Localização')
+                        .addTo(map);
+
+                    // Cálculo de distância com Haversine
+                    const distance = haversineDistance(
+                        {lat: userLat, lng: userLng}, 
+                        {lat: escritorioLat, lng: escritorioLng}
+                    );
+
+                    // Exibir distância
+                    const distanciaKm = distance.toFixed(1);
+                    document.querySelector('.distancia-info').innerHTML = 
+                        `<p>Você está a aproximadamente <strong>${distanciaKm} km</strong> do nosso escritório.</p>`;
+
+                    // Ajustar zoom para mostrar ambos os pontos
+                    const bounds = L.latLngBounds([[userLat, userLng], [escritorioLat, escritorioLng]]);
+                    map.fitBounds(bounds, {padding: [50, 50]});
+                },
+                () => {
+                    document.querySelector('.distancia-info').innerHTML = 
+                        '<p>Não foi possível obter sua localização. Por favor, permita o acesso à sua localização.</p>';
+                }
+            );
+        } else {
+            document.querySelector('.distancia-info').innerHTML = 
+                '<p>Seu navegador não suporta geolocalização.</p>';
+        }
+
+        function haversineDistance(coords1, coords2) {
+            function toRad(x) {
+                return x * Math.PI / 180;
+            }
+
+            const R = 6371; // Raio da Terra em km
+            const dLat = toRad(coords2.lat - coords1.lat);
+            const dLon = toRad(coords2.lng - coords1.lng);
+            const lat1 = toRad(coords1.lat);
+            const lat2 = toRad(coords2.lat);
+
+            const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.sin(dLon / 2) * Math.sin(dLon / 2) * Math.cos(lat1) * Math.cos(lat2); 
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)); 
+            
+            return R * c;
+        }
+    </script>
+</body>
+</html>

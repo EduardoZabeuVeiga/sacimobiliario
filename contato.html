@@ -5,6 +5,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contato | Polo de Assessoria Imobiliária</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <style>
+        .contato-section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 1rem;
+        }
+        .contato-section h1 {
+            color: #4e5c3a;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .contato-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+        .contato-info h2 {
+            color: #4e5c3a;
+            margin-bottom: 1.5rem;
+        }
+        .info-item {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .info-item h3 {
+            color: #4e5c3a;
+            margin-bottom: 0.5rem;
+        }
+        .info-item p {
+            margin: 0;
+            line-height: 1.6;
+        }
+        .info-item a {
+            color: #4e5c3a;
+            text-decoration: none;
+        }
+        .info-item a:hover {
+            text-decoration: underline;
+        }
+        .form-contato {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .form-contato h2 {
+            color: #4e5c3a;
+            margin-bottom: 1.5rem;
+        }
+        .form-contato label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #2d2d2d;
+        }
+        .form-contato input,
+        .form-contato textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+        .form-contato button {
+            background: #4e5c3a;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+        .form-contato button:hover {
+            background: #3d4a2e;
+        }
+        .mapa-container {
+            grid-column: 1 / -1;
+            margin-top: 2rem;
+        }
+        .mapa-container h2 {
+            color: #4e5c3a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        #map {
+            width: 100%;
+            height: 400px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .distancia-info {
+            text-align: center;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        @media (max-width: 768px) {
+            .contato-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .contato-section h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -21,24 +138,70 @@
         </nav>
     </header>
     <main>
-        <section class="contato">
-            <h1>Diagnóstico Inicial</h1>
-            <form class="diagnostico-form">
-                <label>Qual a situação do seu imóvel?</label>
-                <div class="checkbox-group">
-                    <label><input type="checkbox" name="situacao" value="comprar-vender"> Quero Comprar/Vender</label>
-                    <label><input type="checkbox" name="situacao" value="regularizar"> Preciso Regularizar Documentação</label>
-                    <label><input type="checkbox" name="situacao" value="projeto-topografia"> Preciso de Projeto/Topografia</label>
-                    <label><input type="checkbox" name="situacao" value="administrar"> Preciso Administrar meu bem</label>
+        <section class="contato-section">
+            <h1>Entre em Contato</h1>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem;">Estamos aqui para oferecer as melhores soluções imobiliárias em Trancoso. Entre em contato conosco!</p>
+            
+            <div class="contato-grid">
+                <div class="contato-info">
+                    <h2>Informações de Contato</h2>
+                    
+                    <div class="info-item">
+                        <h3>� Sócios</h3>
+                        <p>Leonardo Lima<br>Kleyton Abreu</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <h3>📞 Telefones</h3>
+                        <p><a href="tel:+5527998395903">(27) 99839-5903</a><br><a href="tel:+5527997318615">(27) 99731-8615</a></p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <h3>📧 E-mails</h3>
+                        <p><a href="mailto:leonardo@abreuelimaadv.com.br">leonardo@abreuelimaadv.com.br</a><br><a href="mailto:kleyton@abreuelimaadv.com.br">kleyton@abreuelimaadv.com.br</a></p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <h3>📍 Endereço</h3>
+                        <p>Rua da Itabela, 453<br>Centro (povoado trancoso)<br>Porto Seguro/BA – CEP 45818-000</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <h3>🏢 Nossas Unidades</h3>
+                        <p>Infraestrutura completa em Vila Velha/ES e Trancoso/BA</p>
+                    </div>
                 </div>
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" required>
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="mensagem">Mensagem:</label>
-                <textarea id="mensagem" name="mensagem" rows="4"></textarea>
-                <button type="submit">Enviar</button>
-            </form>
+                
+                <div class="form-contato">
+                    <h2>Envie sua Mensagem</h2>
+                    <form id="form-contato">
+                        <label for="nome">Nome Completo:</label>
+                        <input type="text" id="nome" name="nome" required>
+                        
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="email" required>
+                        
+                        <label for="telefone">Telefone:</label>
+                        <input type="tel" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX">
+                        
+                        <label for="assunto">Assunto:</label>
+                        <input type="text" id="assunto" name="assunto" required>
+                        
+                        <label for="mensagem">Mensagem:</label>
+                        <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Conte-nos como podemos ajudá-lo..."></textarea>
+                        
+                        <button type="submit">Enviar Mensagem</button>
+                    </form>
+                </div>
+                
+                <div class="mapa-container">
+                    <h2>Nossa Localização em Trancoso</h2>
+                    <div id="map"></div>
+                    <div class="distancia-info">
+                        <p>Calculando distância...</p>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
     <footer>
@@ -48,5 +211,105 @@
         <img src="assets/img/whatsapp.svg" alt="WhatsApp">
     </a>
     <script src="assets/js/main.js"></script>
+    <script>
+        // Coordenadas do Polo de Assessoria Imobiliária em Trancoso
+        const poloLat = -16.590777;
+        const poloLng = -39.101290;
+        
+        // Inicializa o mapa Leaflet
+        const map = L.map('map').setView([poloLat, poloLng], 15);
+
+        // Adiciona o mapa de fundo (tiles) do OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Marcador do Polo de Assessoria Imobiliária
+        L.marker([poloLat, poloLng]).addTo(map)
+            .bindPopup('<b>Polo de Assessoria Imobiliária</b><br>Trancoso - BA')
+            .openPopup();
+
+        // Obter localização do usuário
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const userLat = position.coords.latitude;
+                    const userLng = position.coords.longitude;
+                    
+                    // Adicionar marcador do usuário
+                    L.marker([userLat, userLng]).addTo(map)
+                        .bindPopup('Sua Localização');
+
+                    // Cálculo de distância com Haversine
+                    const distance = haversineDistance(
+                        {lat: userLat, lng: userLng}, 
+                        {lat: poloLat, lng: poloLng}
+                    );
+
+                    // Exibir distância
+                    const distanciaKm = distance.toFixed(1);
+                    document.querySelector('.distancia-info').innerHTML = 
+                        `<p>Você está a aproximadamente <strong>${distanciaKm} km</strong> do Polo de Assessoria Imobiliária.</p>`;
+
+                    // Ajustar zoom para mostrar ambos os pontos
+                    const bounds = L.latLngBounds([[userLat, userLng], [poloLat, poloLng]]);
+                    map.fitBounds(bounds, {padding: [50, 50]});
+                },
+                () => {
+                    document.querySelector('.distancia-info').innerHTML = 
+                        '<p>Não foi possível obter sua localização.</p>';
+                }
+            );
+        } else {
+            document.querySelector('.distancia-info').innerHTML = 
+                '<p>Seu navegador não suporta geolocalização.</p>';
+        }
+
+        function haversineDistance(coords1, coords2) {
+            function toRad(x) {
+                return x * Math.PI / 180;
+            }
+
+            const R = 6371; // Raio da Terra em km
+            const dLat = toRad(coords2.lat - coords1.lat);
+            const dLon = toRad(coords2.lng - coords1.lng);
+            const lat1 = toRad(coords1.lat);
+            const lat2 = toRad(coords2.lat);
+
+            const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.sin(dLon / 2) * Math.sin(dLon / 2) * Math.cos(lat1) * Math.cos(lat2); 
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)); 
+            
+            return R * c;
+        }
+
+        // Funcionalidade do formulário
+        document.getElementById('form-contato').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const telefone = document.getElementById('telefone').value;
+            const assunto = document.getElementById('assunto').value;
+            const mensagem = document.getElementById('mensagem').value;
+            
+            // Criar mensagem para WhatsApp
+            const textoWhatsApp = `Olá! Meu nome é ${nome}.
+            
+Assunto: ${assunto}
+
+Mensagem: ${mensagem}
+
+Contatos:
+📧 ${email}
+📞 ${telefone}`;
+            
+            // Codificar para URL
+            const mensagemCodificada = encodeURIComponent(textoWhatsApp);
+            
+            // Abrir WhatsApp
+            window.open(`https://wa.me/5527998395903?text=${mensagemCodificada}`, '_blank');
+        });
+    </script>
 </body>
 </html>
