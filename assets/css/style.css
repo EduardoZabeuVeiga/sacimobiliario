@@ -336,6 +336,7 @@ button:hover, input[type="submit"]:hover {
     nav ul li a {
         display: block;
         padding: 1rem;
+        text-align: center;
     }
 
     .menu-toggle.active span:nth-child(1) {
