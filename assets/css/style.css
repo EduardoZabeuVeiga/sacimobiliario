@@ -112,13 +112,14 @@ nav ul li a:hover {
     color: #3F4F2F;
 }
 .hero {
-    background: linear-gradient(135deg, #3F4F2F 0%, rgba(176, 138, 79, 0.9) 50%, #B08A4F 100%), url('../img/hero.jpg') center/cover no-repeat;
+    background: transparent;
     min-height: 350px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #fff;
     text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    position: relative;
 }
 .hero-content {
     background: rgba(34, 49, 63, 0.55);
