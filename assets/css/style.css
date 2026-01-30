@@ -219,6 +219,51 @@ body.dark-mode .contato {
 .servico-bloco {
     margin-bottom: 2rem;
 }
+
+/* Layout com imagem ao lado */
+.content-with-image {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.content-with-image.reverse {
+    flex-direction: row-reverse;
+}
+
+.text-content {
+    flex: 1;
+}
+
+.image-content {
+    flex: 1;
+    text-align: center;
+}
+
+.image-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.image-below {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.image-below img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+body.dark-mode .image-content img,
+body.dark-mode .image-below img {
+    box-shadow: 0 2px 8px rgba(255,255,255,0.1);
+}
 .imovel-lista {
     display: flex;
     gap: 2rem;
@@ -476,5 +521,19 @@ button:hover, input[type="submit"]:hover {
 
     .imovel-card {
         width: 100%;
+    }
+
+    .content-with-image {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .content-with-image.reverse {
+        flex-direction: column;
+    }
+
+    .text-content,
+    .image-content {
+        flex: 100%;
     }
 }
