@@ -1,3 +1,23 @@
+// Menu Hamburger
+const menuToggle = document.getElementById('menuToggle');
+const navMenu = document.getElementById('navMenu');
+
+if (menuToggle && navMenu) {
+    menuToggle.addEventListener('click', function() {
+        menuToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+
+    // Fechar menu ao clicar em um link
+    const menuLinks = navMenu.querySelectorAll('a');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            menuToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+}
+
 // Botão WhatsApp
 const whatsappBtn = document.getElementById('whatsappBtn');
 if (whatsappBtn) {
